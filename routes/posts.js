@@ -1,21 +1,11 @@
 
 const express = require('express')
-const Post = require('../models/posts')
+const { getPosts } = require('../controllers/posts')
 const routerPosts =  express.Router()
 
-routerPosts.get('/posts',async(req,res)=>{
-    try {
-        const posts =  await Post.find({})
-        res.render('get',
-            {
-                // title:
-                // posts:
-            }
-        )
-    } catch (error) {
-        console.log(error);
-    }
-})
+
+//rutas de index
+routerPosts.get('/posts',getPosts)
 
 module.exports = {
     routerPosts
