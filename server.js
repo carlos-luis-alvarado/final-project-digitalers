@@ -2,6 +2,7 @@
 const express = require('express')
 const { dbConnection } = require('./database/config')
 const {engine} =  require('express-handlebars')
+const methodOverride = require('method-override')
 const routerIndex = require('./routes')
 const { routerDev } = require('./routes/db')
 const { routerPosts } = require('./routes/posts')
@@ -18,6 +19,7 @@ app.set('views','./views')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
+app.use(methodOverride('_method'))
 
 //routes
 app.use('/',routerIndex)

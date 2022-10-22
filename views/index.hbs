@@ -1,5 +1,7 @@
 <h2>Listado de posts</h2>
 <hr>
+    <a href="/posts/new"  class="btn btn-success">Crear Post</a>
+<hr>
 <table class="table">
     <thead>
         <tr>
@@ -18,8 +20,8 @@
             <td width="40%">{{this.body}}</td>
             <td>
                 <a href="/posts/{{this.slug}}" class="btn btn-secondary">Ver</a>
-                <button class="btn btn-primary">Editar</button>
-                <form action="/posts/{{this._id}}" method="POST">
+                <a href="/posts/edit/{{this.id}}" class="btn btn-primary">Editar</a>
+                <form action="/posts/{{this._id}}?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Eliminar</button>
                 </form>
 
