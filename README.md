@@ -36,3 +36,14 @@ talwinds
 chakra
 materialize
 bulma
+
+## ICONS Bootstrap
+<https://icons.getbootstrap.com/>
+
+## GOOGLE FONTS
+<https://fonts.google.com>
+
+## METHOD-OVERRIDE
+```sh
+npm install method-override
+```

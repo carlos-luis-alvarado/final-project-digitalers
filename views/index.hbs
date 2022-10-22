@@ -17,9 +17,12 @@
             <td width="30%">{{this.title}}</td>
             <td width="40%">{{this.body}}</td>
             <td>
-                <button class="btn btn-secondary">Ver</button>
+                <a href="/posts/{{this.slug}}" class="btn btn-secondary">Ver</a>
                 <button class="btn btn-primary">Editar</button>
-                <button class="btn btn-danger">Eliminar</button>
+                <form action="/posts/{{this._id}}" method="POST">
+                    <button class="btn btn-danger">Eliminar</button>
+                </form>
+
             </td>
         </tr>
         {{/each}}
