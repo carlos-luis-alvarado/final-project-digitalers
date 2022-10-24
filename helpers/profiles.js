@@ -10,7 +10,7 @@ const generateProfile = ()=>{
     }
     //test
     //console.log(post)
-    console.log('------------------------------');
+
     return profile
 }
 
