@@ -2,6 +2,9 @@
 const express = require('express')
 const { dbConnection } = require('./database/config')
 const {engine} =  require('express-handlebars')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
+const passport = require('passport')
 const methodOverride = require('method-override')
 // const routerIndex = require('./routes')
 
@@ -11,6 +14,7 @@ const { routerPosts } = require('./routes/posts')
 const { routerProfiles } = require('./routes/profiles')
 const { routerAuth } = require('./routes/auth')
 require('dotenv').config()
+require('./config/passport')
 //inicializo la aplicacion de express
 const app = express()
 //conectarme a la db
@@ -24,7 +28,17 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(methodOverride('_method'))
-
+app.use(
+    session({
+        secret:process.env.SESSION_SECRET,
+        resave:true,
+        saveUninitialized:true,
+        store:MongoStore.create({mongoUrl:process.env.DB_LOCAL_URI})
+    })
+)
+//TODO:revisar
+app.use(passport.initialize())
+app.use(passport.session())
 //routes
 // app.use('/',routerIndex)
 

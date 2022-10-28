@@ -59,6 +59,10 @@ npm i express-handlebars
 npm install method-override
 ```
     
+### Passport express-session passport-local conector para persisitir la informacion de la sseion en MONGO(connect-mongo)
+```sh
+ npm i connect-mongo express-session passport passport-local
+```
 ## Tech Stack
 
 **Cliente:** HTML, CSS, Javascript, Bootstrap
