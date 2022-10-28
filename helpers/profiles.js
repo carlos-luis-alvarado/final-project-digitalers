@@ -3,8 +3,8 @@ const {faker} =  require('@faker-js/faker')
 
 const generateProfile = ()=>{
     const profile = {
-        name:faker.lorem.words(6),
-        description:faker.lorem.sentence(12),
+        name:faker.name.fullName(),
+        job:faker.name.jobTitle(),
         img:faker.image.avatar()
         //slug:slugigy(faker.lorem.words(6).toLowerCase()),
     }

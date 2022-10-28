@@ -1,5 +1,26 @@
 const { response } = require('express')
 const Post = require('../models/posts')
+
+
+//mostrar los posts en cards
+
+const traerPostCards =async (req,res)=>{
+    try {
+        const posts = await Post.find({}).lean()
+        console.log(posts);
+        const title = 'InfoBlog - Inicio'
+        res.status(200).render('home',
+            {
+                title,
+                posts
+            }
+        )
+    } catch (error) {
+        console.log(error);
+
+    }
+}
+
 //index
 const getPosts = async (req, res) => {
     try {
@@ -71,6 +92,7 @@ const showPostFormEdit =async (req,res=response)=>{
     }
 }
 module.exports = {
+    traerPostCards,
     getPosts,
     showPost,
     deletePost,

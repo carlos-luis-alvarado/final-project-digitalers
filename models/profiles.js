@@ -9,7 +9,7 @@ const profileSchema =  new mongoose.Schema(
             type:String,
             required:true
         },
-        description:{
+        job:{
             type:String,
             required:true
         },

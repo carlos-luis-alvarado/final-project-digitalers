@@ -1,3 +1,21 @@
-*{
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+/* *{
+    
 }
+
+
+.contenedor-profiles{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+}
+.profile-img{
+    padding: 5px;
+    border-radius: 10px;
+}
+.card{
+    transition: 1s;
+}
+.card:hover{
+    scale: 1.05;
+    box-shadow: 10px 10px 10px black;
+} */

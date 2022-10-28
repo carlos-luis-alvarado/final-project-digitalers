@@ -3,10 +3,13 @@ const express = require('express')
 const { dbConnection } = require('./database/config')
 const {engine} =  require('express-handlebars')
 const methodOverride = require('method-override')
-const routerIndex = require('./routes')
+// const routerIndex = require('./routes')
+
+
 const { routerDev } = require('./routes/db')
 const { routerPosts } = require('./routes/posts')
 const { routerProfiles } = require('./routes/profiles')
+const { routerAuth } = require('./routes/auth')
 require('dotenv').config()
 //inicializo la aplicacion de express
 const app = express()
@@ -23,9 +26,10 @@ app.use(express.json())
 app.use(methodOverride('_method'))
 
 //routes
-app.use('/',routerIndex)
+// app.use('/',routerIndex)
 
 app.use('/',routerDev)//solo desarrollo
+app.use('/',routerAuth)
 app.use('/',routerPosts)
 app.use('/',routerProfiles)
 
