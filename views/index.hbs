@@ -1,30 +1,32 @@
-<div class="col">
+<div class="col text-white">
     <h2>Listado de posts</h2>
 <hr>
     <a href="/posts/new"  class="btn btn-success">Crear Post</a>
 <hr>
-<table class="table">
-    <thead class="table-secondary">
-        <tr>
+<table class="text-base rounded-2xl border-2 overflow-hidden border-violet-400 my-4 block m-auto w-9/12">
+    <thead class="p-2.5 bg-slate-900 p-3 text-slate-200 text-indigo-500">
+        <tr class="">
 
-            <th scope="col">Titulo</th>
-            <th scope="col">Post</th>
-            <th scope="col">Acciones</th>
+            <th class="p-2.5" scope="col">Titulo</th>
+            <th class="p-2.5" scope="col">Post</th>
+            <th class="p-2.5" scope="col">Acciones</th>
 
         </tr>
     </thead>
-    <tbody>
+    <tbody style="background-color: #2c1154">
 
         {{#each posts}}
-        <tr>
-            <td width="30%">{{this.title}}</td>
-            <td width="40%">{{this.body}}</td>
-            <td>
-                <a href="/posts/{{this.slug}}" class="btn btn-secondary">Ver</a>
-                <a href="/posts/edit/{{this.id}}" class="btn btn-primary">Editar</a>
+        <tr class="hover:bg-violet-900">
+            <td class="font-bold text-pink-300  p-2.5" width="30%">{{this.title}}</td>
+            <td class="p-2.5" width="40%">{{this.body}}</td>
+            <td class="p-2.5">
+                <div class="flex justify-around">
+                    <a href="/posts/{{this.slug}}" class="bg-fuchsia-600 p-2">Ver</a>
+                <a href="/posts/edit/{{this.id}}" class="bg-cyan-600 p-2">Editar</a>
                 <form action="/posts/{{this._id}}?_method=DELETE" method="POST">
-                    <button class="btn btn-danger">Eliminar</button>
+                    <button class="bg-red-500 p-2">Eliminar</button>
                 </form>
+                </div>
 
             </td>
         </tr>
