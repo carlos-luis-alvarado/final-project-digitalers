@@ -63,6 +63,11 @@ npm install method-override
 ```sh
  npm i connect-mongo express-session passport passport-local
 ```
+
+### Connect Flash
+```sh
+npm i connect-flash
+```
 ## Tech Stack
 
 **Cliente:** HTML, CSS, Javascript, Bootstrap

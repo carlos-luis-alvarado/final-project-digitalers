@@ -1,4 +1,11 @@
-{{!-- 1.51 --}}
+{{#if todo_ok}}
+    
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>{{todo_ok}}</strong> You should check in on some of those fields below.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
 <div class="w-1/4 text-white m-auto text-LG">
     <h2 class="my-8 text-indigo-300 text-center font-bold text-4xl">Bienvenido</h2>
     <form class="" action="/auth/signin" method="POST">

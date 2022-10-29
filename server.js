@@ -3,6 +3,7 @@ const express = require('express')
 const { dbConnection } = require('./database/config')
 const {engine} =  require('express-handlebars')
 const session = require('express-session')
+const flash = require('connect-flash')
 const MongoStore = require('connect-mongo')
 const passport = require('passport')
 const methodOverride = require('method-override')
@@ -39,6 +40,14 @@ app.use(
 //TODO:revisar
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(flash())
+
+
+app.use((req,res, next)=>{
+    res.locals.todo_ok = req.flash('todo_ok')
+    res.locals.todo_error = req.flash('todo_error')
+    next()
+})
 //routes
 // app.use('/',routerIndex)
 

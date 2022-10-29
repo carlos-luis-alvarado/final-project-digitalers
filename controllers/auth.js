@@ -23,18 +23,22 @@ const signup = async (req, res = response) => {
 
     if ( errors.length > 0) {
         return res.render('auth/signup', {
-            errors
+            errors,
+            name,
+            email
         })
     }
 
     const userFound = await Auth.findOne({ email })
     if ( userFound ) {
+        req.flash('todo_error','El mail ya existe en nuestros registros')
         return res.redirect('/auth/signup')
     }
 
     const newUser = new Auth({ name, email, password })
     newUser.password = await newUser.passwordEncrypt(password)
     await newUser.save()
+    req.flash("todo_ok","Se registro correctamente")
     res.redirect('/auth/signin')
 }
 
@@ -44,7 +48,8 @@ const showAuthFormSignIn = (req, res = response) => {
 
 const signin = passport.authenticate('local', {
     successRedirect: "/posts",
-    failureRedirect: '/auth/signin'
+    failureRedirect: '/auth/signin',
+    failureFlash:true
 })
 
 const logout = async (req, res = response, next) => {
