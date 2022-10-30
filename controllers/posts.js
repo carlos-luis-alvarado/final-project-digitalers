@@ -73,6 +73,7 @@ const createPost = async (req, res) => {
         let post = new Post()
         post.title = req.body.title
         post.body = req.body.body
+        post.user = req.user.id
         post = await post.save()
         res.redirect(`/posts/${post.slug}`)
     } catch (error) {

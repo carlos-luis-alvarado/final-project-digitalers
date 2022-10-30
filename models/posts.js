@@ -13,6 +13,10 @@ const postSchema =  new mongoose.Schema(
             type:String,
             required:true
         },
+        user:{
+            type:String,
+            required:true
+        },
         slug:{
             type:String,
             required:true,

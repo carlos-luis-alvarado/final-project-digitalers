@@ -52,6 +52,11 @@ const signin = passport.authenticate('local', {
     failureFlash:true
 })
 
+const profile = (req,res=response)=>{
+    const {name,email} = req.user
+    res.json({name,email})
+}
+
 const logout = async (req, res = response, next) => {
     await req.logout((err) => {
         if( err ) return next()
@@ -64,5 +69,6 @@ module.exports = {
     signup,
     showAuthFormSignIn,
     signin,
-    logout
+    logout,
+    profile
 }
